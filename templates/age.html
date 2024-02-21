@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Age</title>
+    <link href="{{ url_for('static', path='/css/age.css') }}" rel="stylesheet">
+</head>
+
+
+{% extends "index.html" %}
+{% block content %}
+<div class="age">
+    <form action="/age" method="post" enctype="multipart/form-data">
+
+            <div class="description">         
+                <h2>Age Model Testing</h2>
+                <p>Upload an image from your computer and compare the results of the previously deployed production model and the latest production Age model.</p><br>
+                <div class="btn-div">
+                    <input type="file" id="image" name="image">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <hr class="hdivider">
+
+            <div class="hdiv">
+            <div class="vdiv">
+                <h2>Old Model</h2>
+                <p>
+                    Model Name: Age-Exp0 </br>
+                    Created on: June 15, 2023</br>
+                    Dataset size: 3.3 Million</br>
+                    Model Accuracy (mAP): NA</br>
+                    Manual Evaluation Score: 50%</br>
+                    <strong>Predicted Age: {{age_old}}</strong></br>
+                </p>
+            </div>
+            
+            <div class="vdiv">
+                <h2>New Model</h2>
+                <p>
+                    Model Name: Age-Exp64 </br>
+                    Created on: September 2, 2023</br>
+                    Dataset size: 7000 images</br>
+                    Model Accuracy (mAP): 40%</br>
+                    Manual Evaluation Score: 60%</br>
+                    <strong>Predicted Age: {{age_new}}</strong></br>
+                </p>
+            </div>
+            <div class="vdiv">
+                {% if face %}
+                <img class="image" src="data:image/jpeg;base64,{{ face }}" alt="" >
+                {% endif %}
+            </div>
+            </div>
+
+
+        </form>  
+
+    </div>
+{% endblock %}
+
+</html>
+

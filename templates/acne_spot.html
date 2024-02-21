@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Acne Spot</title>
+    <link href="{{ url_for('static', path='/css/acne_spot.css') }}" rel="stylesheet">
+</head>
+
+
+{% extends "index.html" %}
+{% block content %}
+<div class="acne_spot">
+    <form action="/acne_spot" method="post" enctype="multipart/form-data">
+
+            <div class="description">         
+                <h2>Acne Model Testing</h2>
+                <p>Upload an image from your computer and compare the results of the previously deployed production model and the latest production acne model.</p><br>
+                <div class="btn-div">
+                    <input type="file" id="image" name="image">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <hr class="hdivider">
+
+            <div class="hdiv">
+            <div class="vdiv">
+                <h2>Old Model</h2>
+                <p>
+                    Model Name: Acne-Exp0 </br>
+                    Created on: June 21, 2023</br>
+                    Dataset size: 4000 images </br>
+                    Model Accuracy (mAP): 24%</br>
+                    Manual Evaluation Score: 50%</br>
+                    <strong>Acne Count: {{acne_old_score}}</strong></br>
+                    <strong>Spot Count: {{spot_old_score}}</strong>
+                </p>
+                    {% if acne_old %}
+                    <img class="image" src="data:image/jpeg;base64,{{ acne_old }}" alt="">
+                    {% endif %}
+            </div>
+            
+            <div class="vdiv">
+                <h2>New Model</h2>
+                <p>
+                    Model Name: Acne-Exp46 </br>
+                    Created on: August 5, 2023</br>
+                    Dataset size: 3000 images</br>
+                    Model Accuracy (mAP): 30%</br>
+                    Manual Evaluation Score: 70%</br>
+                    <strong>Acne Count: {{acne_new_score}}</strong></br>
+                    <strong>Spot Count: {{spot_new_score}}</strong>
+                </p>
+                {% if acne_new %}
+                <img class="image" src="data:image/jpeg;base64,{{ acne_new }}" alt="">
+                {% endif %}
+            </div>
+            </div>
+
+
+        </form>  
+
+    </div>
+{% endblock %}
+
+</html>
+

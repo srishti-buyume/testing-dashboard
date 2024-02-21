@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wrinkle</title>
+    <link href="{{ url_for('static', path='/css/wrinkle.css') }}" rel="stylesheet">
+</head>
+
+
+{% extends "index.html" %}
+{% block content %}
+<div class="wrinkle">
+    <form action="/wrinkle" method="post" enctype="multipart/form-data">
+
+            <div class="description">         
+                <h2>Wrinkle Model Testing</h2>
+                <p>Upload an image from your computer and compare the results of the previously deployed production model and the latest production wrinkle model.</p><br>
+                <div class="btn-div">
+                    <input type="file" id="image" name="image">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <hr class="hdivider">
+
+            <div class="hdiv">
+            <div class="vdiv">
+                <h2>Old Model</h2>
+                <p>
+                    Model Name: Wrinkle-Exp0 </br>
+                    Created on: June 15, 2023</br>
+                    Dataset size: 2500 images</br>
+                    Model Accuracy (mAP): 20%</br>
+                    Manual Evaluation Score: 30%</br>
+                </p>
+                    {% if wrinkle_old %}
+                    <img class="image" src="data:image/jpeg;base64,{{ wrinkle_old }}" alt="">
+                    {% endif %}
+            </div>
+            
+            <div class="vdiv">
+                <h2>New Model</h2>
+                <p>
+                    Model Name: Wrinkle-Exp71 </br>
+                    Created on: Sep 7, 2023</br>
+                    Dataset size: 1500 images</br>
+                    Model Accuracy (mAP): 56%</br>
+                    Manual Evaluation Score: NA</br>
+                </p>
+                {% if wrinkle_old %}
+                <img class="image" src="data:image/jpeg;base64,{{ wrinkle_new }}" alt="">
+                {% endif %}
+            </div>
+            </div>
+
+
+        </form>  
+
+    </div>
+{% endblock %}
+
+</html>
+

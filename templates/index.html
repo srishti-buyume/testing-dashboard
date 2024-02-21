@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Model Sandbox Home Page</title>
+    <link href="{{ url_for('static', path='/css/index.css') }}" rel="stylesheet">
+</head>
+
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="index">  
+            <div class="description">         
+                <h2> Buyume Machine Learning Model Sandbox</h2>
+                <p>
+                  Sandbox for A/B Testing Machine Learning Models. <br>
+                  Currently 4 models have been updated - Acne, Spot, Wrinkle and Age. <br>
+                  Navigate to respective menu to know more about the Model. <br><br>
+                  This dashboard was last updated on September 18, 2023. <br>
+                </p>
+            </div>
+
+            <hr class="hdivider">
+            <div class="section">
+            <h2>Acne</h2>
+            <div class="hdiv">
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/acne-0.jpg') }}" alt="">
+            </div>
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/acne-46.jpg') }}" alt="">
+            </div>
+            </div>
+            </div>
+
+
+            <hr class="hdivider">
+            <div class="section">
+            <h2>Spot</h2>
+            <div class="hdiv">
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/spot-0.jpg') }}" alt="">
+            </div>
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/spot-46.jpg') }}" alt="">
+            </div>
+            </div>
+            </div>
+
+
+            <hr class="hdivider">
+            <div class="section">
+            <h2>Wrinkle</h2>
+            <div class="hdiv">
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/wrinkle-0.jpg') }}" alt="">
+            </div>
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/wrinkle-2.png') }}" alt="">
+            </div>
+            </div>
+            </div>
+
+
+            <hr class="hdivider">
+            <div class="section">
+            <h2>Age</h2>
+            <div class="hdiv">
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/age-0.jpg') }}" alt="">
+            </div>
+            <div class="vdiv">
+            <img class="image" src="{{ url_for('static', path='/img/age-64.jpg') }}" alt="">
+            </div>
+            </div>
+            </div>
+  
+</div>
+
+{% endblock %}
+</html>

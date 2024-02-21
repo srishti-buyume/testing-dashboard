@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Error Page</title>
+    <link href="{{ url_for('static', path='/css/error.css') }}" rel="stylesheet">
+</head>
+
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="error">
+    <div class="error-message">
+        <p>Incorrect file format. Please provide a valid input !</p>
+    </div>
+</div>
+{% endblock %}
+</html>
